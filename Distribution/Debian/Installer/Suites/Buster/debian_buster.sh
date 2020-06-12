@@ -105,8 +105,7 @@ chmod +x /usr/local/bin/distro-help
 clear
 echo 'You can login to new user using "su - USERNAME" '
 echo ' Welcome to Mobilinux | Debian Buster (10)'
-echo 'You can login to new user using "su - USERNAME" ' >> ~/.bashrc
-echo ' Welcome to Mobilinux | Debian Buster (10)' >> ~/.bashrc
+echo -e "echo 'Welcome to Mobilinux | Debian Buster (10)'" >> ~/.bashrc
 source ~/.bashrc
 rm -rf /root/adduser.sh
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile
