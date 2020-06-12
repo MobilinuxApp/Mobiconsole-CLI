@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+blue() {
+    echo -e "\e[34m${1}\e[0m"
+}
+
+echo " "
+blue 'VNC Help '
+echo " "
+echo 'To start GUI and VNC server type in the command: "vncserver-start" '
+echo " "
+echo 'To stop GUI and VNC server type in the command: "vncserver-stop" '
+echo " "
+echo 'If you are getting error unable to connect to vnc, please reconfigure the VNC Server. '
+echo "**Note : Please note that you will need to enter view only password too while configuring VNC password to avoid connection errors."
+echo ' '
+blue 'Xserver XSDL'
+echo " "
+echo 'If in any case VNC connection is not working then you can access the GUI using "XServer XSDL" app. '
+echo 'To connect to the desktop, type in the following commands:'
+echo ' '
+echo 'export DISPLAY=127.0.0.1:0'
+echo 'startlxde &'
+echo ' '
+echo 'Replace "lxde" with the desktop installed, that you want to start.'
+echo ' '
+echo 'For further help, read the app documentation'
