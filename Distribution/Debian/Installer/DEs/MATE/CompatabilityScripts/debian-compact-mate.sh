@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-mark hold udisks2
+#apt-mark hold udisks2
 apt install dialog
 clear
 trap '' 2
@@ -17,7 +17,7 @@ then
         then
         	echo 'Installing Minimal System '
 		sleep 4
-    		apt-get install caja gvfs-backends mate-desktop-environment-core mate-terminal tightvncserver xfe -y
+    		apt-get install mate-desktop-environment mate-terminal tightvncserver xfe -y
         fi
  
          # Full is selected
