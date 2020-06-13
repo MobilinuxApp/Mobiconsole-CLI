@@ -17,7 +17,7 @@ then
         then
                 echo 'Installing Minimal System '
 		sleep 4
-    		apt-get lxde-core lxterminal tightvncserver xfe -y
+    		apt-get install lxde-core lxterminal tightvncserver xfe -y
         fi
  
          # Full is selected
