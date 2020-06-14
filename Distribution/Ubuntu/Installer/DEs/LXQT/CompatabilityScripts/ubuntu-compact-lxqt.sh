@@ -17,7 +17,7 @@ then
         then
                 echo 'Installing Minimal System '
 		sleep 4
-    		apt-get install lxqt-core lxqt-config qterminal tigervnc-standalone-server dbus-x11 xfe -y
+    		apt-get install lxqt-core lxqt-config qterminal tightvncserver dbus-x11 xfe -y
         fi
  
          # Full is selected
@@ -25,7 +25,7 @@ then
         then
             	echo 'Installing Full System '
 		sleep 4
-		apt-get install lxqt-core lxqt-config qterminal tigervnc-standalone-server dbus-x11 lubuntu-desktop xfe gimp neofetch libreoffice -y
+		apt-get install lxqt-core lxqt-config qterminal tightvncserver dbus-x11 lubuntu-desktop xfe gimp neofetch libreoffice -y
     		sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
         fi
  # Cancel is pressed
