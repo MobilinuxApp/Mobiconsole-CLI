@@ -17,7 +17,7 @@ then
         then
                 echo 'Installing Minimal System '
 		            sleep 4
-    		        apt-get lxde-core lxterminal tigervnc-standalone-server xfe -y
+    		        apt-get install lxde-core lxterminal tigervnc-standalone-server xfe -y
         fi
  
          # Full is selected
