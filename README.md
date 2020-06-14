@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/Assets/Mobilinux.png">
+<img src="https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Assets/Mobilinux.png">
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@ You don't have to worry about multi-booting your system which means you can have
 
 # What OS are supported?
 Mobilinux currently supports following OS at the moment.
-### Un-Modded OS
+### Standard Distros
 1. Ubuntu
 2. Debian
 3. Manjaro
@@ -47,7 +47,7 @@ Mobilinux currently supports following OS at the moment.
 3. XFCE
 4. MATE
 
-# Are we open-source? 📖🔓
+# Are we open-source? 
 
 
 Yes but no. Mobilinux is partially open-source. All the free distro tar files and the shell scripts are available on our [GitHub repository](https://github.com/MobilinuxApp/Mobiconsole-CLI/). While the actual Android app and all the files concerning Mobilinux are close-source for obvious reasons.
@@ -56,7 +56,7 @@ That doesn't mean that we don't love open-source, **we** like **open-source**. I
 
 <br>
 
-# Here are a few screenshots 🤘
+# Here are a few screenshots
 
 <br>
 
