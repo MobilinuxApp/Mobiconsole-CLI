@@ -7,7 +7,7 @@ rm -rf ubuntu-fs
 rm -rf ubuntu-binds
 rm -rf ubuntu.sh
 rm -rf start-ubuntu.sh
-rm -rf ssh-apt.sh
+rm -rf ubuntu-ssh.sh
 rm -rf std-ubuntu-installer.sh
 rm -rf ubuntu_bionic.sh
 rm -rf ubuntu_bionic_awesome.sh
