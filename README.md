@@ -12,8 +12,8 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/Assets/oneplus.png" width="250">
-  <img src="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/Assets/nexus7.png" width="250">
+  <img src="https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Assets/oneplus.png" width="250">
+  <img src="https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Assets/nexus7.png" width="250">
  </p>
 
 # How does this work?
@@ -61,8 +61,8 @@ That doesn't mean that we don't love open-source, **we** like **open-source**. I
 <br>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/Assets/fedora.png" width="400" >
-<img src="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/Assets/screenshot11.png" width="400" >
+<img src="https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Assets/fedora.png" width="400" >
+<img src="https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Assets/screenshot11.png" width="400" >
 <img src="https://raw.githubusercontent.com/imprakharshukla/Readme-Resources/master/example/example3.png" width="400" >
 <img src="https://raw.githubusercontent.com/imprakharshukla/Readme-Resources/master/example/example4.png" width="400" >
 </p>
