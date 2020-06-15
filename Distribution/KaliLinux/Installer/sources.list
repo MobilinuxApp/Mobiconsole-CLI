@@ -1,0 +1,3 @@
+deb http://kali.cs.nctu.edu.tw/kali kali-rolling main contrib non-free
+# For source package access, uncomment the following line
+deb-src http://kali.cs.nctu.edu.tw/kali kali-rolling main contrib non-free
