@@ -44,7 +44,7 @@ apt-get clean
 mkdir ~/.vnc
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux/Installer/DEs/LXQT/xstartup -P ~/.vnc/
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux/Installer/DEs/LXQT/vncserver-start -P /usr/local/bin/
-wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux/Installer/DEs/LXQT/vncserver-start -P /usr/local/bin/
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux/Installer/DEs/LXQT/vncserver-stop -P /usr/local/bin/
 
 
 chmod +x ~/.vnc/xstartup
