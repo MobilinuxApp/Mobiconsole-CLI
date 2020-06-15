@@ -2,7 +2,7 @@
 folder=kali-fs
 termux-setup-storage
 pkg install dialog
-dialog --title "Storage Info" --msgbox "\n\nStandard Debian Installation would occupy around 1GB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
+dialog --title "Storage Info" --msgbox "\n\nStandard Kali Installation would occupy around 2GB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux"
 
 if [ -d "$folder" ]; then
