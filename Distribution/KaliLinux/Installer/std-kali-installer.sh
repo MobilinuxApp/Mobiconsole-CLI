@@ -96,7 +96,7 @@ echo "Setting up the installation of XFCE VNC"
 
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash
-apt update -y && apt install wget sudo diaog -y
+apt update -y && apt full-upgrade -y && apt install wget sudo diaog -y
 mv /etc/apt/sources.list  /etc/apt/sources.list.old 
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux/Installer/sources.list -O /etc/apt/sources.list
 clear
