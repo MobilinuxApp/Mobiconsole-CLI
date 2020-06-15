@@ -1,6 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=kali-fs
 termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nCustom Kali Installation would occupy around 3GB of space on your device as per your Desktop choice.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux"
 
 if [ -d "$folder" ]; then
