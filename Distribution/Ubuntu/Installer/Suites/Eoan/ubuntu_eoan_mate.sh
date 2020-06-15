@@ -28,7 +28,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/Ubuntu/Rootfs/Eoan/${archurl}/ubuntu-eoan-${archurl}-root.tar.gz?raw=true" -O $tarball
+		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/Ubuntu/Rootfs/Eoan/${archurl}/ubuntu-eoan-${archurl}.tar.gz?raw=true" -O $tarball
 fi
 	cur=`pwd`
 	mkdir -p "$folder"
