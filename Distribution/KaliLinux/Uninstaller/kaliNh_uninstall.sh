@@ -7,12 +7,9 @@ rm -rf nethunter-fs
 rm -rf nethunter-binds
 rm -rf nethunter.sh
 rm -rf start-nethunter.sh
-rm -rf ssh-apt.sh
-rm -rf de-apt.sh
-rm -rf de-apt-xfce4.sh
-rm -rf de-apt-mate.sh
-rm -rf de-apt-lxqt.sh
-rm -rf de-apt-lxde.sh
-rm -rf UNI-nethunter.sh
+rm -rf kali_xfce4_de.sh
+rm -rf kali-ssh.sh
+rm -rf std-kaliNH-installer.sh
+rm -rf kaliNh_uninstall.sh
 
 echo "Done"
