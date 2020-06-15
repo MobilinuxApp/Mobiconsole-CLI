@@ -6,7 +6,7 @@
   <a href="https://sourceforge.net/p/mobilinuxapp/discussion/"><img src="https://img.shields.io/badge/Questions%3F-Join%20our%20forum-blue?style=flat-square"></a>
   <a href="https://mobilinux.weebly.com/"><img src="https://img.shields.io/badge/website-Visit%20Our%20Website-blue"></a>
   <a href="https://github.com/MobilinuxApp/Mobiconsole-CLI"><img src="https://img.shields.io/badge/Download-GitHub%20Releases-orange?style=flat-square&logo=github"></a>
-  <a href="https://github.com/MobilinuxApp/Mobiconsole-CLI"><img src="https://badgen.net/badge/icon/github?icon=github&label"></a>
+  
   
 <br>
 <h1 align="center">Install Linux on your Android </h1>
