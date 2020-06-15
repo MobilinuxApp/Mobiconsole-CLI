@@ -7,7 +7,7 @@
   <a href="https://mobilinux.weebly.com/"><img src="https://img.shields.io/badge/website-Visit%20Our%20Website-blue"></a>
   <a href="https://github.com/MobilinuxApp/Mobiconsole-CLI"><img src="https://img.shields.io/badge/Download-GitHub%20Releases-orange?style=flat-square&logo=github"></a>
   <a href=""><img src="https://img.shields.io/cocoapods/p/android 4.4 and above?style=flat-square"></a>
-
+  
 <br>
 <h1 align="center">Install Linux on your Android </h1>
 <br>
