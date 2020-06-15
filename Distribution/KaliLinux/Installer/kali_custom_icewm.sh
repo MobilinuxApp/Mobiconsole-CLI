@@ -1,6 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=kali-fs
 termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nCustom Kali Installation would occupy around 3GB of space on your device as per your Desktop choice.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux"
 
 if [ -d "$folder" ]; then
@@ -94,7 +96,9 @@ echo "Setting up the installation of ICEWM VNC"
 
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash
-apt update -y && apt install wget sudo dialog -y
+apt update -y && apt full-upgrade -y && apt install wget sudo diaog -y
+mv /etc/apt/sources.list  /etc/apt/sources.list.old 
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux/Installer/sources.list -O /etc/apt/sources.list
 clear
 if [ ! -f /root/kali_xfce4_de.sh ]; then
     wget --tries=20 $dlink/Installer/WindowManager/IceWM/kali_icewm_de.sh -O /root/kali_icewm_de.sh
