@@ -87,11 +87,11 @@ rm $tarball
 #bash $bin
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash
-apt update -y && apt install wget sudo -y
+apt update -y && apt full-upgrade -y && apt install wget sudo diaog -y
+mv /etc/apt/sources.list  /etc/apt/sources.list.old 
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/KaliLinux/Installer/sources.list -O /etc/apt/sources.list
 clear
-echo " "
-echo "Updating repository lists, Please Wait!"
-apt-get update && apt-get upgrade -y
+
 echo " "
 echo "Done! "
 echo 'Creating new user'
