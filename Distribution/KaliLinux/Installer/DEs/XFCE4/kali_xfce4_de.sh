@@ -17,7 +17,7 @@ then
         then
              echo 'Installing Minimal System '
 		         sleep 4
-    		     apt-get install xfce4 xfce4-terminal tigervnc-standalone-server xfe kali-desktop-xfce kali-linux -y
+    		     apt-get install xfce4 xfce4-terminal tigervnc-standalone-server xfe kali-desktop-xfce -y
         fi
  
          # Full is selected
@@ -25,7 +25,7 @@ then
         then
             	echo 'Installing Full System '
 		          sleep 4
-		          apt-get install xfe xfce4 xfce4-terminal tigervnc-standalone-server xfce4-goodies gimp neofetch libreoffice kali-linux kali-desktop-xfce kali-tools-default -y
+		          apt-get install xfe xfce4 xfce4-terminal tigervnc-standalone-server xfce4-goodies gimp neofetch libreoffice kali-desktop-xfce kali-tools-default -y
     		      sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
         fi
  # Cancel is pressed
