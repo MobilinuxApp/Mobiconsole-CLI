@@ -104,7 +104,7 @@ if [ ! -f /root/ubuntu-compact-mate.sh ]; then
     bash ~/ubuntu-compact-mate.sh
 else
     bash ~/ubuntu-compact-mate.sh
-    
+fi
 clear
 if [ ! -f /usr/local/bin/vncserver-start ]; then
     wget --tries=20  $dlink//Installer/DEs/MATE/CompatabilityScripts/vncserver-start -O /usr/local/bin/vncserver-start
