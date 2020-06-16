@@ -24,8 +24,8 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Parrot/${archurl}/parrot-rootfs-${archurl}.tar.xz" -O $tarball
-	fi
+		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/ParrotOs/Rootfs/${archurl}/parrot-rootfs-${archurl}.tar.xz?raw=true" -O $tarball
+fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
