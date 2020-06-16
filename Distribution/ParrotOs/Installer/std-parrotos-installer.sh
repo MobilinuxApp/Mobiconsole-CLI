@@ -88,12 +88,31 @@ cat parrot-fs/etc/apt/sources.list | \
 sed -e 's/stable/lts/g' >> parrot-fs/etc/apt/sources.list
 touch parrot-fs/root/.parrot
 
+wget --tries=20 $dlink/Installer/DEs/XFCE4/debian_xfce4_de.sh -O $folder/root/debian_xfce4_de.sh
+clear
+echo "Setting up the installation of XFCE VNC"
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
-echo "#!/bin/bash"
 echo "#!/bin/bash
 rm -rf /etc/resolv.conf
 echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 apt update -y && apt full-upgrade && apt install wget sudo dialog -y
+clear
+if [ ! -f /root/debian_xfce4_de.sh ]; then
+    wget --tries=20 $dlink/Installer/DEs/XFCE4/debian_xfce4_de.sh -O /root/debian_xfce4_de.sh
+    bash ~/debian_xfce4_de.sh
+else
+    bash ~/debian_xfce4_de.sh
+fi
+clear
+if [ ! -f /usr/local/bin/vncserver-start ]; then
+    wget --tries=20  $dlink/Installer/DEs/XFCE4/vncserver-start -O /usr/local/bin/vncserver-start
+    wget --tries=20 $dlink/Installer/DEs/XFCE4/vncserver-stop -O /usr/local/bin/vncserver-stop
+    chmod +x /usr/local/bin/vncserver-stop
+    chmod +x /usr/local/bin/vncserver-start
+fi
+if [ ! -f /usr/bin/vncserver ]; then
+    apt install tigervnc-standalone-server -y
+fi
 clear
 echo 'Creating new user'
 wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Debian/Installer/adduser.sh -O /root/adduser.sh && chmod +x adduser.sh
