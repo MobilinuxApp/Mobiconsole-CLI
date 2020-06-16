@@ -1,6 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
 termux-setup-storage
-folder=parrot-fs
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
@@ -26,7 +25,7 @@ if [ "$first" != 1 ];then
 			echo "unknown architecture"; exit 1 ;;
 		esac
 		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/ParrotOs/Rootfs/${archurl}/parrot-rootfs-${archurl}.tar.xz?raw=true" -O $tarball
-fi
+	fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
@@ -80,12 +79,12 @@ echo "making $bin executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
+
+mv parrot-fs/etc/apt/sources.list  parrot-fs/etc/apt/sources.list.old 
+wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
+
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash"
-rm -rf /etc/resolv.conf
-echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
-mv /etc/apt/sources.list  /etc/apt/sources.list.old 
-wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
 apt update -y && apt full-upgrade -y && apt install wget sudo diaog -y
 clear
 echo " "
