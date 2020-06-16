@@ -55,9 +55,6 @@ fi
 command+=" -b /dev"
 command+=" -b /proc"
 command+=" -b parrot-fs/root:/dev/shm"
-command+=" -b /data"
-command+=" -b /mnt"
-command+=" -b /proc/mounts:/etc/mtab"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
@@ -83,11 +80,28 @@ echo "making $bin executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
-
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
-echo "#!/bin/bash
+echo "#!/bin/bash"
+rm -rf /etc/resolv.conf
+echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 mv /etc/apt/sources.list  /etc/apt/sources.list.old 
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
 apt update -y && apt full-upgrade -y && apt install wget sudo diaog -y
+clear
+echo " "
+echo "Done! "
+echo 'Creating new user'
+wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Debian/Installer/adduser.sh -O /root/adduser.sh && chmod +x adduser.sh
+sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
+bash ~/adduser.sh
+echo 'User creation....Done'
+echo 'Writing Help Script'
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/distro-help -P /usr/local/bin/
+chmod +x /usr/local/bin/distro-help
+clear
+echo 'You can login to new user using "su - USERNAME" '
+echo ' Welcome to Mobilinux | Parrot OS '
+rm -rf /root/adduser.sh
+rm -rf ~/.bash_profile" > $folder/root/.bash_profile
 
 bash $bin
