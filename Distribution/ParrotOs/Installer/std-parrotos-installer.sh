@@ -1,5 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=parrot-fs
+termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nStandard Parrot OS Installation would occupy around 1.5GB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
+dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOS"
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
@@ -43,6 +47,7 @@ cd \$(dirname \$0)
 unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
+command+=" --kill-on-exit"
 command+=" -0"
 command+=" -r $folder"
 if [ -n "\$(ls -A parrot-binds)" ]; then
@@ -83,16 +88,24 @@ sed -e 's/stable/lts/g' >> parrot-fs/etc/apt/sources.list
 touch parrot-fs/root/.parrot
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash"
-apt update -y && apt install wget sudo -y
+echo "#!/bin/bash
+rm -rf /etc/resolv.conf
+echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
+apt update -y && apt full-upgrade && apt install wget sudo dialog -y
 clear
-echo " "
-echo "Updating repository lists, Please Wait!"
-apt-get update && apt-get upgrade -y
-echo " "
 echo 'Creating new user'
 wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Debian/Installer/adduser.sh -O /root/adduser.sh && chmod +x adduser.sh
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
+echo 'Writing Help Script'
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/distro-help -P /usr/local/bin/
+chmod +x /usr/local/bin/distro-help
+clear
 echo 'You can login to new user using su - USERNAME'
 echo 'Welcome to Mobilinux | Parrot Sec OS'
+rm -rf /root/adduser.sh
+rm -rf /root/debian_xfce4_de.sh
+rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
+
+bash $bin
