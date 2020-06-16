@@ -1,4 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
+folder=parrot-fs
 termux-setup-storage
 if [ -d "$folder" ]; then
 	first=1
@@ -80,11 +81,14 @@ chmod +x $bin
 echo "removing image for some space"
 rm $tarball
 
-mv parrot-fs/etc/apt/sources.list  parrot-fs/etc/apt/sources.list.old 
-wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
+cat parrot-fs/etc/apt/sources.list | \
+sed -e 's/stable/lts/g' >> parrot-fs/etc/apt/sources.list
+touch parrot-fs/root/.parrot
 
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash"
+mv parrot-fs/etc/apt/sources.list  parrot-fs/etc/apt/sources.list.old 
+wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
 apt update -y && apt full-upgrade -y && apt install wget sudo diaog -y
 clear
 echo " "
