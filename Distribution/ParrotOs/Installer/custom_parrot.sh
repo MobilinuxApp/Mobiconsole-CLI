@@ -1,4 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
+termux-setup-storage
 folder=parrot-fs
 if [ -d "$folder" ]; then
 	first=1
@@ -43,6 +44,7 @@ cd \$(dirname \$0)
 unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
+command+=" --kill-on-exit"
 command+=" -0"
 command+=" -r $folder"
 if [ -n "\$(ls -A parrot-binds)" ]; then
@@ -53,10 +55,13 @@ fi
 command+=" -b /dev"
 command+=" -b /proc"
 command+=" -b parrot-fs/root:/dev/shm"
+command+=" -b /data"
+command+=" -b /mnt"
+command+=" -b /proc/mounts:/etc/mtab"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
-#command+=" -b /sdcard"
+command+=" -b /sdcard"
 command+=" -w /root"
 command+=" /usr/bin/env -i"
 command+=" HOME=/root"
