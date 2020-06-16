@@ -78,4 +78,11 @@ echo "making $bin executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
-echo "You can now launch Parrot Security OS with the ./${bin} script"
+
+echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
+echo "#!/bin/bash
+mv /etc/apt/sources.list  /etc/apt/sources.list.old 
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
+apt update -y && apt full-upgrade -y && apt install wget sudo diaog -y
+
+bash $bin
