@@ -1,4 +1,4 @@
-deb https://mirror.0x.sg/parrot/ rolling main contrib non-free
-#deb-src https://mirror.0x.sg/parrot/ rolling main contrib non-free
-deb https://mirror.0x.sg/parrot/ rolling-security main contrib non-free
-#deb-src https://mirror.0x.sg/parrot/ rolling-security main contrib non-free
+deb https://ftp.halifax.rwth-aachen.de/parrotsec/ rolling main contrib non-free
+deb-src https://ftp.halifax.rwth-aachen.de/parrotsec/ rolling main contrib non-free
+deb https://ftp.halifax.rwth-aachen.de/parrotsec/ rolling-security main contrib non-free
+deb-src https://ftp.halifax.rwth-aachen.de/parrotsec/ rolling-security main contrib non-free
