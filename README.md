@@ -53,7 +53,7 @@ Mobilinux currently supports following OS at the moment.
 
 Yes but no. Mobilinux is partially open-source. All the free distro tar files and the shell scripts are available on our [GitHub repository](https://github.com/MobilinuxApp/Mobiconsole-CLI/). While the actual Android app and all the files concerning Mobilinux are close-source for obvious reasons.
 
-That doesn't mean that we don't love open-source, **we** like **open-source**. In fact if you're a developer or a maintainer of an open-source project, **we will be more than happy to provide you everything for free** for life.
+That doesn't mean that we don't love open-source, **we** like **open-source**.
 
 <br>
 
