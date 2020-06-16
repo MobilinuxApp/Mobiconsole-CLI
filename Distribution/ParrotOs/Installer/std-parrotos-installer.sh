@@ -95,7 +95,7 @@ echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Set
 echo "#!/bin/bash
 rm -rf /etc/resolv.conf
 echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
-mv parrot-fs/etc/apt/sources.list  parrot-fs/etc/apt/sources.list.old 
+mv /etc/apt/sources.list  /etc/apt/sources.list.old 
 wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
 apt update -y && apt full-upgrade && apt install wget sudo dialog -y
 clear
