@@ -85,8 +85,7 @@ echo "removing image for some space"
 rm $tarball
 
 cat parrot-fs/etc/apt/sources.list | \
-mv parrot-fs/etc/apt/sources.list  parrot-fs/etc/apt/sources.list.old 
-wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
+sed -e 's/stable/lts/g' >> parrot-fs/etc/apt/sources.list
 touch parrot-fs/root/.parrot
 
 wget --tries=20 $dlink/Installer/DEs/XFCE4/debian_xfce4_de.sh -O $folder/root/debian_xfce4_de.sh
@@ -96,6 +95,8 @@ echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Set
 echo "#!/bin/bash
 rm -rf /etc/resolv.conf
 echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
+mv parrot-fs/etc/apt/sources.list  parrot-fs/etc/apt/sources.list.old 
+wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ParrotOs/Installer/sources.list -O /etc/apt/sources.list
 apt update -y && apt full-upgrade && apt install wget sudo dialog -y
 clear
 if [ ! -f /root/debian_xfce4_de.sh ]; then
