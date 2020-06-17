@@ -17,6 +17,9 @@ then
         then
                 echo 'Installing Minimal System '
 		sleep 4
+		rm -rf /var/lib/apt/lists/*
+		apt-get clean
+		apt-get update
 		apt-get install backbox-default-settings backbox-desktop backbox-menu xfce4 xfce4-terminal tightvncserver xfe -y
     	
         fi
@@ -26,6 +29,9 @@ then
         then
             	echo 'Installing Full System '
 		sleep 4
+		rm -rf /var/lib/apt/lists/*
+		apt-get clean
+		apt-get update
 		apt-get install xfe backbox-default-settings backbox-desktop backbox-menu backbox-tools xfce4 xfce4-terminal beef-project metasploit-framework whatweb wpscan setoolkit tightvncserver xfce4-goodies gimp neofetch libreoffice -y
     		sudo apt-get install openvas sqlite3
 		sudo openvas-launch sync
