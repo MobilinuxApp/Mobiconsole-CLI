@@ -1,5 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=backbox-fs
+termux-setup-storage
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
@@ -84,12 +85,15 @@ rm $tarball
 #echo "You can now launch Debian with the ./${bin} script next time"
 #bash $bin
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
-echo "#!/bin/bash"
-apt update -y && apt install wget sudo -y
+echo "#!/bin/bash
+mv /etc/apt/sources.list  /etc/apt/sources.list.old 
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
+apt update -y && apt full-upgrade -y && apt install wget sudo dialog -y
 clear
-echo " "
-echo "Updating repository lists, Please Wait!"
-apt-get update && apt-get upgrade -y
+echo 'Updating the Syatem'
+rm -rf /var/lib/apt/lists/*
+apt update 
+apt dist-upgrade
 echo " "
 echo "Done! "
 echo 'Creating new user'
@@ -97,11 +101,10 @@ wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/m
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
-echo " "
+clear
 echo 'You can login to new user using "su - USERNAME" '
-echo " "
 echo ' Welcome to Mobilinux | BackBox OS '
-echo " "
+rm -rf /root/adduser.sh
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile
 
 bash $bin
