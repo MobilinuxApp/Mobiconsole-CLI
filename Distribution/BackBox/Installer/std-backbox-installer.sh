@@ -99,6 +99,11 @@ mv /etc/apt/sources.list  /etc/apt/sources.list.old
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
 apt update -y && apt full-upgrade -y && apt install wget sudo dialog -y
 clear
+echo 'Updating the Syatem'
+rm -rf /var/lib/apt/lists/*
+apt update 
+apt dist-upgrade
+clear
 if [ ! -f /root/backbox_xfce4_de.sh ]; then
     wget --tries=20 $dlink/Installer/DEs/XFCE4/backbox_xfce4_de.sh -O /root/backbox_xfce4_de.sh
     bash ~/backbox_xfce4_de.sh
