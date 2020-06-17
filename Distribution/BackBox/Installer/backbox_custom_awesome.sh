@@ -1,4 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
+termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nCustom BackBox Installation would occupy around 2GB of space on your device as per your Desktop choice.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox"
 folder=backbox-fs
 if [ -d "$folder" ]; then
@@ -91,7 +94,9 @@ echo "Setting up the installation of AWESOME WM VNC"
 
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash
-apt update -y && apt install wget sudo -y
+mv /etc/apt/sources.list  /etc/apt/sources.list.old 
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
+apt update -y && apt full-upgrade -y && apt install wget sudo dialog -y
 clear
 if [ ! -f /root/backbox_awesome_wm.sh ]; then
     wget --tries=20 $dlink/Installer/WindowManagers/Awesome/backbox_awesome_wm.sh -O /root/backbox_awesome_wm.sh
@@ -118,8 +123,11 @@ wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/m
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
+clear
 echo 'You can login to new user using su - USERNAME'
 echo ' Welcome to Mobilinux | BackBox OS '
+rm -rf /root/adduser.sh
+rm -rf /root/backbox_awesome_wm.sh
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
 
 bash $bin
