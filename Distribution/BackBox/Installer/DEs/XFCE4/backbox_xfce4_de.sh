@@ -27,7 +27,10 @@ then
             	echo 'Installing Full System '
 		sleep 4
 		apt-get install xfe backbox-default-settings backbox-desktop backbox-menu backbox-tools xfce4 xfce4-terminal beef-project metasploit-framework whatweb wpscan setoolkit tightvncserver xfce4-goodies gimp neofetch libreoffice -y
-    		sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
+    		sudo apt-get install openvas sqlite3
+		sudo openvas-launch sync
+		sudo openvas-launch start
+		sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
         fi
  # Cancel is pressed
 else
