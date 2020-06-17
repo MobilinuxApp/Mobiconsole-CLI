@@ -88,14 +88,14 @@ echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Set
 echo "#!/bin/bash
 mv /etc/apt/sources.list  /etc/apt/sources.list.old 
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
-apt update -y && apt full-upgrade -y && apt install wget sudo dialog -y
-clear
-echo 'Updating the Syatem'
+echo 'Updating the System'
+apt update
 rm -rf /var/lib/apt/lists/*
 apt update 
 apt dist-upgrade
 echo " "
 echo "Done! "
+clear
 echo 'Creating new user'
 wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Debian/Installer/adduser.sh -O /root/adduser.sh && chmod +x adduser.sh
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
