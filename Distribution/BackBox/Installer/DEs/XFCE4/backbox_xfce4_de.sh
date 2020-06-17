@@ -17,7 +17,8 @@ then
         then
                 echo 'Installing Minimal System '
 		sleep 4
-    		apt-get install xfce4 xfce4-terminal tigervnc-standalone-server xfe -y
+		apt-get install backbox-default-settings backbox-desktop backbox-menu xfce4 xfce4-terminal tightvncserver xfe -y
+    	
         fi
  
          # Full is selected
@@ -25,7 +26,7 @@ then
         then
             	echo 'Installing Full System '
 		sleep 4
-		apt-get install xfe xfce4 xfce4-terminal tigervnc-standalone-server xfce4-goodies gimp neofetch libreoffice -y
+		apt-get install xfe backbox-default-settings backbox-desktop backbox-menu backbox-tools xfce4 xfce4-terminal tightvncserver xfce4-goodies gimp neofetch libreoffice -y
     		sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
         fi
  # Cancel is pressed
@@ -43,7 +44,7 @@ apt-get clean
 #Setup the necessary files
 mkdir ~/.vnc
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/DEs/XFCE4/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/DEs/XFCE4/vncserver-start -P /usr/local/bin/
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Ubuntu/Installer/DEs/XFCE4/CompatabilityScripts/vncserver-start -P /usr/local/bin/
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/DEs/XFCE4/vncserver-stop -P /usr/local/bin/
 
 chmod +x ~/.vnc/xstartup
