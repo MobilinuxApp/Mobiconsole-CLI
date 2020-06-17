@@ -94,8 +94,8 @@ echo "Setting up the installation of MATE VNC"
 
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash
-mv /etc/apt/sources.list  /etc/apt/sources.list.old 
-wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
+#mv /etc/apt/sources.list  /etc/apt/sources.list.old 
+#wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
 echo 'Updating the System'
 apt update
 rm -rf /var/lib/apt/lists/*
