@@ -1,4 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
+termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nStandard Debian Installation would occupy around 1GB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox"
 folder=backbox-fs
 if [ -d "$folder" ]; then
@@ -44,6 +47,7 @@ cd \$(dirname \$0)
 unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
+command+=" --kill-on-exit"
 command+=" -0"
 command+=" -r $folder"
 if [ -n "\$(ls -A backbox-binds)" ]; then
@@ -91,7 +95,7 @@ echo "Setting up the installation of XFCE VNC"
 
 echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Setting APT retry count
 echo "#!/bin/bash
-apt update -y && apt install wget sudo -y
+apt update -y && apt install wget sudo dialog -y
 clear
 if [ ! -f /root/backbox_xfce4_de.sh ]; then
     wget --tries=20 $dlink/Installer/DEs/XFCE4/backbox_xfce4_de.sh -O /root/backbox_xfce4_de.sh
@@ -120,6 +124,8 @@ bash ~/adduser.sh
 echo 'User creation....Done'
 echo 'You can login to new user using su - USERNAME'
 echo ' Welcome to Mobilinux | BackBox OS '
+rm -rf /root/adduser.sh
+rm -rf /root/backbox_xfce4_de.sh
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
 
 bash $bin
