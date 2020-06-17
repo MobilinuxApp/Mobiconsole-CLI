@@ -91,8 +91,8 @@ wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distr
 echo 'Updating the System'
 apt update
 rm -rf /var/lib/apt/lists/*
-apt update 
-apt dist-upgrade
+apt update --fix-missing
+apt-get dist-upgrade --fix-missing
 echo " "
 echo "Done! "
 clear
