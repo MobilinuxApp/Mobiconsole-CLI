@@ -2,8 +2,41 @@
 
 #Get the necessary components
 apt-get update
-apt-get install awesome tightvncserver -y
-apt-get install xfe -y
+apt-mark hold udisks2
+apt install dialog
+trap '' 2
+dialog --clear --backtitle "System Installation Type" --title "Choose Installation type:" --menu "Please select:" 10 45 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 4GB" 2>temp
+# OK is pressed
+if [ "$?" = "0" ]
+then
+        _return=$(cat temp)
+ 
+        # Minimal is selected
+        if [ "$_return" = "1" ]
+        then
+              echo 'Installing Minimal System '
+		          sleep 4
+    		      apt-get install awesome awesome-extra tightvncserver firefox-esr xfe backbox-default-settings backbox-desktop backbox-menu -y
+        fi
+ 
+         # Full is selected
+        if [ "$_return" = "2" ]
+        then
+            	echo 'Installing Full System '
+		        sleep 4
+		        apt-get install xfe awesome awesome-extra tightvncserver firefox-esr gimp neofetch libreoffice lightdm libreoffice-gtk synaptic vlc xdg-utils xorg xserver-xorg-input-all xserver-xorg-video-all backbox-default-settings backbox-desktop backbox-menu backbox-tools -y
+          		sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
+        fi
+ # Cancel is pressed
+else
+        echo "Cancel is pressed, Restarting The Menu......"
+	sleep 3
+	dialog --menu "Choose Installation type:" 10 40 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 4GB" 2>temp
+fi
+ 
+# remove the temp file
+rm -f temp
+trap 2
 apt-get clean
 
 #Setup the necessary files
@@ -27,6 +60,8 @@ echo "You can connect to this address with a VNC Viewer you prefer"
 echo " "
 echo "Connect to this address will open a window with Awesome Window Manager"
 echo " "
+echo " "
+echo "**Note : Please note that you will need to enter view only password too while configuring VNC password to avoid connection errors."
 echo " "
 echo " "
 echo "Running vncserver-start"
