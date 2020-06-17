@@ -26,14 +26,14 @@ then
         then
             	echo 'Installing Full System '
 		sleep 4
-		apt-get install xfe backbox-default-settings backbox-desktop backbox-menu backbox-tools xfce4 xfce4-terminal tightvncserver xfce4-goodies gimp neofetch libreoffice -y
+		apt-get install xfe backbox-default-settings backbox-desktop backbox-menu backbox-tools xfce4 xfce4-terminal beef-project metasploit-framework whatweb wpscan setoolkit tightvncserver xfce4-goodies gimp neofetch libreoffice -y
     		sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
         fi
  # Cancel is pressed
 else
         echo "Cancel is pressed, Restarting The Menu......"
 	sleep 3
-	dialog --menu "Choose Installation type:" 10 40 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 4GB" 2>temp
+	dialog --menu "Choose Installation type:" 10 40 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 5GB" 2>temp
 fi
  
 # remove the temp file
