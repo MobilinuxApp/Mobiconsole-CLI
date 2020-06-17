@@ -96,7 +96,13 @@ echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Set
 echo "#!/bin/bash
 mv /etc/apt/sources.list  /etc/apt/sources.list.old 
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
-apt update -y && apt full-upgrade -y && apt install wget sudo dialog -y
+echo 'Updating the System'
+apt update
+rm -rf /var/lib/apt/lists/*
+apt update --fix-missing
+apt-get dist-upgrade --fix-missing
+echo " "
+apt install wget sudo dialog -y
 clear
 if [ ! -f /root/backbox_awesome_wm.sh ]; then
     wget --tries=20 $dlink/Installer/WindowManagers/Awesome/backbox_awesome_wm.sh -O /root/backbox_awesome_wm.sh
