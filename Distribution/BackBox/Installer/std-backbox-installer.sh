@@ -97,7 +97,6 @@ echo "APT::Acquire::Retries \"3\";" > $folder/etc/apt/apt.conf.d/80-retries #Set
 echo "#!/bin/bash
 mv /etc/apt/sources.list  /etc/apt/sources.list.old 
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/BackBox/Installer/sources.list -O /etc/apt/sources.list
-clear
 apt update -y && apt full-upgrade -y && apt install wget sudo dialog -y
 clear
 if [ ! -f /root/backbox_xfce4_de.sh ]; then
