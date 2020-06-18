@@ -7,12 +7,20 @@ rm -rf fedora-fs
 rm -rf fedora-binds
 rm -rf fedora.sh
 rm -rf start-fedora.sh
-rm -rf ssh-yum.sh
-rm -rf de-yum.sh
-rm -rf de-yum-xfce4.sh
-rm -rf de-yum-mate.sh
-rm -rf de-yum-lxqt.sh
-rm -rf de-yum-lxde.sh
+rm -rf fedora_lxde_de.sh
+rm -rf fedora_lxqt_de.sh
+rm -rf fedora_mate_de.sh
+rm -rf fedora_xfce4_de.sh
+rm -rf fedora-ssh.sh
+rm -rf fedora_awesome_wm.sh
+rm -rf fedora_icewm_wm.sh
+rm -rf fedora_custom.sh
+rm -rf fedora_custom_awesome.sh
+rm -rf fedora_custom_icewm.sh
+rm -rf fedora_custom_lxde.sh
+rm -rf fedora_custom_lxqt.sh
+rm -rf fedora_custom_mate.sh
+rm -rf std-fedora-installer.sh
 rm -rf fedora_uninstall.sh
 
 echo "Done"
