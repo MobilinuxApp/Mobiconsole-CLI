@@ -8,7 +8,6 @@
   <a href="https://github.com/MobilinuxApp/Mobiconsole-CLI"><img src="https://img.shields.io/badge/Download-GitHub%20Releases-orange?style=flat-square&logo=github"></a>
   
   <h3 align="center">Made with 💝 for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="bottom" width="24"/></h3>
-
 <br>
 <h1 align="center">Install Linux on your Android </h1>
 <br>
