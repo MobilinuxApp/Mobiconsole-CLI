@@ -10,7 +10,7 @@
   
 <br>
 <h1 align="center">Install Linux on your Android </h1>
-<p align="center">Made with 💝 for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="top" width="24" /></p>
+<h3 align="center">Made with 💝 for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="top" width="24"/></h3>
 <br>
 
 <p align="center">
