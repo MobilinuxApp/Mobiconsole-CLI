@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=fedora-fs
+termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nCustom Fedora Installation would occupy around 2GB of space on your device as per your Desktop choice.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Fedora"
 if [ -d "$folder" ]; then
 	first=1
@@ -45,6 +48,7 @@ cd \$(dirname \$0)
 unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
+command+=" --kill-on-exit"
 command+=" -0"
 command+=" -r $folder"
 if [ -n "\$(ls -A fedora-binds)" ]; then
@@ -90,7 +94,7 @@ wget --tries=20 $dlink/Installer/DEs/MATE/fedora_mate_de.sh -O $folder/root/fedo
 clear
 echo "Setting up the installation of MATE VNC"
 echo "#!/bin/bash
-yum install wget -y
+yum install wget dialog sudo -y
 clear
 if [ ! -f /root/fedora_mate_de.sh ]; then
     wget --tries=20 $dlink/Installer/DEs/MATE/fedora_mate_de.sh -O /root/fedora_mate_de.sh
@@ -116,8 +120,13 @@ wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/m
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
+echo 'Writing Help Script'
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/distro-help -P /usr/local/bin/
+chmod +x /usr/local/bin/distro-help
+clear
 echo 'You can login to new user using su - USERNAME'
 echo 'Welcome to Mobilinux | Fedora 30 '
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
 rm -rf fedora_mate_de.sh
+rm -rf /root/adduser.sh
 bash $bin
