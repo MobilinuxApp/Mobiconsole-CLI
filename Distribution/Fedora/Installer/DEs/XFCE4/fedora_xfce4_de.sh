@@ -2,7 +2,6 @@
 
 #Get the necessary components
 dnf install dialog -y
-clear
 trap '' 2
 dialog --clear --backtitle "System Installation Type" --title "Choose Installation type:" --menu "Please select:" 10 45 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 4GB" 2>temp
 # OK is pressed
@@ -39,8 +38,6 @@ fi
 # remove the temp file
 rm -f temp
 trap 2
-clear
-
 #Setup the necessary files
 mkdir ~/.vnc
 wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Fedora/Installer/DEs/XFCE4/xstartup -P ~/.vnc/
