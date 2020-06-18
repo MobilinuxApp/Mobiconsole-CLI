@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=centos-fs
+termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nStandard CentOS 7 Installation would occupy around 700MB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
@@ -93,10 +96,11 @@ wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/m
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
-echo " "
+clear
 echo 'You can login to new user using "su - USERNAME" '
-echo " "
 echo ' Welcome to Mobilinux | CentOS 7 '
 echo " "
+
+rm -rf adduser.sh
 
 bash $bin
