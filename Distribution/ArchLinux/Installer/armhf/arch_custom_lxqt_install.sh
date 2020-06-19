@@ -1,6 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=arch-fs
 termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nStandard Arch Linux Installation would occupy around 1.5GB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ArchLinux"
 if [ -d "$folder" ]; then
 	first=1
@@ -119,6 +121,7 @@ clear
 echo 'You can login to new user using "su - USERNAME" '
 echo 'Welcome to Mobilinux | Arch Linux'
 rm -rf /root/adduser.sh
+rm -rf /root/arch_lxqt_de.sh
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
 
 bash $bin
