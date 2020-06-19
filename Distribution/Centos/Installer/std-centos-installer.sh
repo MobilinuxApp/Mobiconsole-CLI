@@ -27,7 +27,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/Centos/Rootfs/${archurl}/centos-rootfs-${archurl}.tar.xz" -O $tarball
+		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/Centos/Rootfs/${archurl}/centos-rootfs-${archurl}.tar.xz?raw=true" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -52,6 +52,7 @@ cd \$(dirname \$0)
 unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
+command+=" --kill-on-exit"
 command+=" -0"
 command+=" -r $folder"
 if [ -n "\$(ls -A centos-binds)" ]; then
@@ -96,10 +97,9 @@ wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/m
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
+clear
 echo 'You can login to new user using "su - USERNAME" '
 echo ' Welcome to Mobilinux | CentOS 7 '
-echo " "
-
 rm -rf adduser.sh
 
 bash $bin
