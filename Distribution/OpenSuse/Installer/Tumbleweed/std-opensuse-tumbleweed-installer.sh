@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 folder=opensuse-tumbleweed-fs
+termux-setup-storage
+pkg install dialog
+dialog --title "Storage Info" --msgbox "\n\nStandard Debian Installation would occupy around 700MB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
@@ -24,7 +27,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/OpenSuse/Rootfs/Tumbleweed/${archurl}/openSUSE-Tumbleweed-rootfs-${archurl}.tar.xz" -O $tarball
+		wget "https://github.com/MobilinuxApp/Mobiconsole-CLI/blob/master/Distribution/OpenSuse/Rootfs/Tumbleweed/${archurl}/openSUSE-Tumbleweed-rootfs-${archurl}.tar.xz?raw=true" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -48,6 +51,7 @@ cd \$(dirname \$0)
 unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
+command+=" --kill-on-exit"
 command+=" -0"
 command+=" -r $folder"
 if [ -n "\$(ls -A opensuse-tumbleweed-binds)" ]; then
@@ -92,10 +96,8 @@ wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/m
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
-echo " "
+clear
 echo 'You can login to new user using "su - USERNAME" '
-echo " "
 echo ' Welcome to Mobilinux | OpenSUSE Tumbleweed'
-echo " "
 
 bash $bin
