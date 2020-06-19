@@ -7,7 +7,8 @@ rm -rf centos-fs
 rm -rf centos-binds
 rm -rf centos.sh
 rm -rf start-centos.sh
-rm -rf ssh-yum.sh
+rm -rf centos-ssh.sh
+rm -rf std-centos-installer.sh
 rm -rf centos_uninstall.sh
 
 echo "Done"
