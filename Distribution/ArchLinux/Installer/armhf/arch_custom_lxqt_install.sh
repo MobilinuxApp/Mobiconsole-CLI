@@ -2,7 +2,7 @@
 folder=arch-fs
 termux-setup-storage
 pkg install dialog
-dialog --title "Storage Info" --msgbox "\n\nStandard Arch Linux Installation would occupy around 1.5GB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
+dialog --title "Storage Info" --msgbox "\n\nCustom Arch Linux Installation would occupy around 2.5GB of space on your device.\n\nIf you wish to Quit right now press Ctrl+C\n\n Press OK to Continue." 20 40
 dlink="https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/ArchLinux"
 if [ -d "$folder" ]; then
 	first=1
