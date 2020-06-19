@@ -96,7 +96,6 @@ wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/m
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
 bash ~/adduser.sh
 echo 'User creation....Done'
-clear
 echo 'You can login to new user using "su - USERNAME" '
 echo ' Welcome to Mobilinux | CentOS 7 '
 echo " "
