@@ -100,8 +100,8 @@ chmod +x $bin
 echo "removing image for some space"
 rm $tarball
 clear
-echo "You can now launch Ubuntu with the ./${bin} script form next time"
-echo " "
+#echo "You can now launch Ubuntu with the ./${bin} script form next time"
+#echo " "
 echo 'Creating new user'
 wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Debian/Installer/adduser.sh -O /root/adduser.sh && chmod +x adduser.sh
 sed -i 's/demousername/defaultusername/g; s/demopasswd/defaultpasswd/g' adduser.sh
