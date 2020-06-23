@@ -112,7 +112,7 @@ wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distr
 chmod +x /usr/local/bin/distro-help
 clear
 echo 'You can login to new user using "su - USERNAME" '
-echo ' Welcome to Mobilinux | Ubuntu 20.04LTS'
+echo ' Welcome to Mobilinux | Ubuntu 20.04LTS '
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
 
 bash $bin
