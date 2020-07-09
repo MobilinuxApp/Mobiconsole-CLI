@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://sourceforge.net/p/mobilinuxapp/discussion/"><img src="https://img.shields.io/badge/Questions%3F-Join%20our%20forum-blue?style=flat-square"></a>
   <a href="https://mobilinux.weebly.com/"><img src="https://img.shields.io/badge/website-Visit%20Our%20Website-blue"></a>
-  <a href="https://github.com/MobilinuxApp/Mobiconsole-CLI"><img src="https://img.shields.io/badge/Download-GitHub%20Releases-orange?style=flat-square&logo=github"></a>
+  <a href="https://github.com/MobilinuxApp/Mobilinux-Release/releases"><img src="https://img.shields.io/badge/Download-GitHub%20Releases-orange?style=flat-square&logo=github"></a>
  
  <br>
   <h3 align="center">Made with 💝 for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="bottom" width="24"/></h3>
@@ -23,7 +23,7 @@ This app lets you install various popular Linux distributions on your Android de
 # What can you do with Mobilinux?
 Pretty much anything you like to do. You're just limited by the lack of the full Linux kernel, the SELinux policies of your Android versions, your CPU architecture and your device's hardware. We have users replacing their entire laptops and computer with Android phone and Mobilinux. We are looking for something that can support web-browsing, coding or anything else that is not really taxing on your phone's hardware then you can use Mobilinux without any issues.
 
-You don't have to worry about multi-booting your system which means you can have all the Linux flavours installed at once. **12 OS at once given that you have the storage for it.** Install as many as you like, uninstall them when you're done.
+You don't have to worry about multi-booting your system which means you can have all the Linux flavours installed at once. Install as many as you like, uninstall them when you're done.
 
 
 # What OS are supported?
