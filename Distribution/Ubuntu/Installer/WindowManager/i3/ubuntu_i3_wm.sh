@@ -3,8 +3,42 @@ clear
 echo "Installing i3wm"
 sleep 2
 sudo apt update -y
-sudo apt install i3 tigervnc-standalone-server wget nano dbus-x11 xorg xterm xfce4-terminal pcmanfm shotwell feh cairo-dock libexo-1-0 tigervnc-common --no-install-recommends -y
-clear
+apt install dialog
+trap '' 2
+dialog --clear --backtitle "System Installation Type" --title "Choose Installation type:" --menu "Please select:" 10 45 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 4GB" 2>temp
+# OK is pressed
+if [ "$?" = "0" ]
+then
+        _return=$(cat temp)
+ 
+        # Minimal is selected
+        if [ "$_return" = "1" ]
+        then
+              echo 'Installing Minimal System '
+		          sleep 4
+              apt install i3 tigervnc-standalone-server wget nano dbus-x11 xorg xterm xfce4-terminal pcmanfm shotwell feh cairo-dock libexo-1-0 tigervnc-common --no-install-recommends -y
+        fi
+ 
+         # Full is selected
+        if [ "$_return" = "2" ]
+        then
+            	echo 'Installing Full System '
+		        sleep 4
+		        apt install i3 tigervnc-standalone-server wget nano dbus-x11 xorg xterm xfce4-terminal pcmanfm shotwell feh cairo-dock libexo-1-0 tigervnc-common firefox-esr gimp neofetch libreoffice lightdm libreoffice-gtk synaptic vlc xdg-utils xorg xserver-xorg-input-all xserver-xorg-video-all -y
+          	sudo apt update -y && sudo apt install wget -y && wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Patches/librepatch.sh && bash librepatch.sh
+        fi
+ # Cancel is pressed
+else
+        echo "Cancel is pressed, Restarting The Menu......"
+	sleep 3
+	dialog --menu "Choose Installation type:" 10 40 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 4GB" 2>temp
+fi
+ 
+# remove the temp file
+rm -f temp
+trap 2
+
+apt-get clean
 
 read -p "Want to install default browser ? (y/n)" choice
 case "$choice" in 
@@ -33,8 +67,8 @@ dbus-launch cairo-dock &
 feh --bg-fill /usr/share/wallpaper.jpg " > ~/.vnc/xstartup
 chmod +x ~/.vnc/xstartup
 
-wget https://raw.githubusercontent.com/Techriz/AndronixOrigin/master/APT/LXDE/vncserver-start -O /usr/local/bin/vncserver-start
-wget https://raw.githubusercontent.com/Techriz/AndronixOrigin/master/APT/LXDE/vncserver-stop -O /usr/local/bin/vncserver-stop
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/vncserver-start -O /usr/local/bin/vncserver-start
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/vncserver-stop -O /usr/local/bin/vncserver-stop
 chmod +x /usr/local/bin/vncserver-start
 chmod +x /usr/local/bin/vncserver-stop
 
@@ -47,7 +81,9 @@ echo "The VNC Server will be started at 127.0.0.1:5901"
 echo " "
 echo "You can connect to this address with a VNC Viewer you prefer"
 echo ""
-echo ""
+echo " "
+echo "**Note : Please note that you will need to enter view only password too while configuring VNC password to avoid connection errors."
+echo " "
 echo ""
 echo "Running vncserver-start"
 echo ""
