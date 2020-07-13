@@ -4,6 +4,10 @@ echo "Installing i3wm"
 sleep 2
 sudo apt update -y
 apt install dialog
+sudo apt install udisks2 -y
+echo "" > /var/lib/dpkg/info/udisks2.postinst
+sudo dpkg --configure -a
+sudo apt-mark hold udisks2
 trap '' 2
 dialog --clear --backtitle "System Installation Type" --title "Choose Installation type:" --menu "Please select:" 10 45 3 1 "Minimal Installation 1.5GB" 2 "Full Installation 4GB" 2>temp
 # OK is pressed
