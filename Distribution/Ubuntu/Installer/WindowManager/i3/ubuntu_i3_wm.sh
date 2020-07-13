@@ -71,8 +71,8 @@ dbus-launch cairo-dock &
 feh --bg-fill /usr/share/wallpaper.jpg " > ~/.vnc/xstartup
 chmod +x ~/.vnc/xstartup
 
-wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/vncserver-start -O /usr/local/bin/vncserver-start
-wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/vncserver-stop -O /usr/local/bin/vncserver-stop
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Ubuntu/Installer/WindowManager/i3/vncserver-start -O /usr/local/bin/vncserver-start
+wget https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/master/Distribution/Ubuntu/Installer/WindowManager/i3/vncserver-stop -O /usr/local/bin/vncserver-stop
 chmod +x /usr/local/bin/vncserver-start
 chmod +x /usr/local/bin/vncserver-stop
 
