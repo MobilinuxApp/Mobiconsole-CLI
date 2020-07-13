@@ -89,7 +89,7 @@ rm $tarball
 
 #DE installation addition
 
-wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/ubuntu_i3_wm.sh -O $folder/root/ubuntu_i3_wm.sh
+wget --tries=20 $dlink/Installer/WindowManager/i3/ubuntu_i3_wm.sh -O $folder/root/ubuntu_i3_wm.sh
 clear
 echo "Setting up the installation of i3 WM VNC"
 
@@ -98,7 +98,7 @@ echo "#!/bin/bash
 apt update -y && apt install wget sudo -y
 clear
 if [ ! -f /root/ubuntu_i3_wm.sh ]; then
-    wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/ubuntu_i3_wm.sh -O /root/ubuntu_i3_wm.sh
+    wget --tries=20 $dlink/Installer/WindowManager/i3/ubuntu_i3_wm.sh -O /root/ubuntu_i3_wm.sh
     bash ~/ubuntu_i3_wm.sh
 else
     bash ~/ubuntu_i3_wm.sh
