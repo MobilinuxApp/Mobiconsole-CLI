@@ -89,7 +89,7 @@ rm $tarball
 
 #DE installation addition
 
-wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/ubuntu_i3_wm_legacy.sh -O $folder/root/ubuntu_i3_wm_legacy.sh
+wget --tries=20 $dlink/Installer/WindowManager/i3/ubuntu_i3_wm_legacy.sh -O $folder/root/ubuntu_i3_wm_legacy.sh
 clear
 echo "Setting up the installation of i3 WM VNC"
 
@@ -100,7 +100,7 @@ echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 apt update -y && apt install wget sudo dialog -y
 clear
 if [ ! -f /root/ubuntu_i3_wm_legacy.sh ]; then
-    wget --tries=20 https://raw.githubusercontent.com/MobilinuxApp/Mobiconsole-CLI/development-branch/Distribution/Ubuntu/Installer/WindowManager/i3/ubuntu_i3_wm_legacy.sh -O /root/ubuntu_i3_wm_legacy.sh
+    wget --tries=20 $dlink/Installer/WindowManager/i3/ubuntu_i3_wm_legacy.sh -O /root/ubuntu_i3_wm_legacy.sh
     bash ~/ubuntu_i3_wm_legacy.sh
 else
     bash ~/ubuntu_i3_wm_legacy.sh
