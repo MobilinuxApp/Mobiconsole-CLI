@@ -89,7 +89,7 @@ rm $tarball
 
 #DE installation addition
 
-wget --tries=20 $dlink/Installer/WindowManagers/i3/debian_i3_wm.sh -O $folder/root/debian_i3_wm.sh
+wget --tries=20 $dlink/Installer/WindowManagers/i3/debian_i3_wm_legacy.sh -O $folder/root/debian_i3_wm_legacy.sh
 clear
 echo "Setting up the installation of i3 WM VNC"
 
@@ -99,11 +99,11 @@ rm -rf /etc/resolv.conf
 echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 apt update -y && apt install wget sudo ca-certificates -y
 clear
-if [ ! -f /root/debian_i3_wm.sh ]; then
-    wget --tries=20 $dlink/Installer/WindowManagers/i3/debian_i3_wm.sh -O /root/debian_i3_wm.sh
-    bash ~/debian_i3_wm.sh
+if [ ! -f /root/debian_i3_wm_legacy.sh ]; then
+    wget --tries=20 $dlink/Installer/WindowManagers/i3/debian_i3_wm_legacy.sh -O /root/debian_i3_wm_legacy.sh
+    bash ~/debian_i3_wm_legacy.sh
 else
-    bash ~/debian_i3_wm.sh
+    bash ~/debian_i3_wm_legacy.sh
 fi
 clear
 if [ ! -f /usr/local/bin/vncserver-start ]; then
@@ -141,7 +141,7 @@ clear
 echo 'You can login to new user using su - USERNAME'
 echo ' Welcome to Mobilinux | Debian Old Stable (Jessie)'
 rm -rf /root/adduser.sh
-rm -rf /root/debian_i3_wm.sh
+rm -rf /root/debian_i3_wm_legacy.sh
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
 
 bash $bin
